@@ -162,4 +162,4 @@ If this still doesn't give you the power you're looking for you can override any
 
 ## Copyright
 
-Copyright (c) 2012 Brian Landau (Viget). See LICENSE.txt for further details.
+Copyright (c) 2012 Brian Landau (Viget). See MIT_LICENSE.txt for further details.
