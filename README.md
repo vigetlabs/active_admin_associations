@@ -1,6 +1,6 @@
 # ActiveAdmin Associations
 
-TODO: Description
+This extends ActiveAdmin to allow for better editing of associations.
 
 ## Setup
 

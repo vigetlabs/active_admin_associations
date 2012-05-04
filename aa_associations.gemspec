@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Brian Landau"]
   s.email       = ["brian.landau@viget.com"]
   s.homepage    = "http://github.com/vigetlabs/active_admin_associations"
-  s.summary     = %q{TODO}
-  s.description = %q{TODO}
+  s.summary     = %q{This extends ActiveAdmin to allow for better editing of associations.}
+  s.description = %q{This extends ActiveAdmin to allow for better editing of associations.}
   s.date = '2012-05-03'
 
   s.files         = `git ls-files`.split("\n")
