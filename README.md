@@ -142,11 +142,11 @@ If this still doesn't give you the power you're looking for you can override any
 * `admin/shared/_form.html.erb` – you probably don't want to override this one instead you probably want to use your own `_form.html.erb` template in your `app/views/admin/RESOURCE_NAME` directory and have this in your AA resource config: `form :partial => 'form'`. But if you really want to change how all the aa_associations forms look you can.
 * `admin/shared/_collection_tabe.html.erb` – this is how we generate the tables for the `has_many` relationships below the form. Once again not something I'd recommend editing
 * `admin/shared/_association_collection_table_actions.html.erb` – this defines the actions that you can do on each related record. The default is "edit" and "unrelate". You may want to override this for instance to define different actions for different models.
+* `admin/shared/_add_to_association.html.erb` – This is the form to relate existing records to the parent record.
 
 
 ## TODO
 
-* Break up views into more partials
 * Improve `form_relationships` API
 
 
