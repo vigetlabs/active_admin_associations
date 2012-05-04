@@ -65,7 +65,7 @@ It might happen that the hash the autocomplete formatter provides for individual
 
 ### Other Configuration
 
-We add functionality so that when you do a destroy action you are redirect back to the Referer or the ActiveAdmin Dashboard. If you'd like to remove this functionality you can just put this in your `config/application.rb`:
+We add functionality so that when you do a destroy action you are redirected back to the Referer or the ActiveAdmin Dashboard. If you'd like to remove this functionality you can just put this in your `config/application.rb`:
 
     config.aa_associations.destroy_redirect = false
 
