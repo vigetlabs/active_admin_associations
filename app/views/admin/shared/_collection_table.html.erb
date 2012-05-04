@@ -1,0 +1,72 @@
+<div class="relationship-table" id="relationship-table-<%= relationship %>">
+  <h3><%= object.class.human_attribute_name(relationship) %></h3>
+  <%- if resource_administrated?(relationship_class) && relationship_class.respond_to?(:autocomplete_attribute) && relationship_class.autocomplete_attribute.present? -%>
+    <%= form_tag relate_to_url(object), :class => 'relate-to-form', :method => :put do %>
+      <fieldset class="inputs">
+        <h4>Add a <%= relationship_class.model_name.human %></h4>
+        <%= hidden_field_tag 'relationship_name', relationship %>
+        <ol>
+          <li class="label">
+            <label for="related_id">
+              <%= relationship_class.model_name.human %>
+              <%= relationship_class.human_attribute_name(relationship_class.autocomplete_attribute) %>
+            </label>
+          </li>
+          <li class="input"><%= hidden_field_tag 'related_id', nil, :class => 'token-input',
+            'data-model-name' => relationship_class.model_name.singular %></li>
+          <li class="button"><%= submit_tag "Add #{relationship_class.model_name.human}" %></li>
+        </ol>
+      </fieldset>
+    <% end %>
+  <%- end -%>
+  <%- if collection.present? -%>
+    <table class="index_table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <% columns.each do |column| %>
+            <th><%= relationship_class.human_attribute_name(column) %></th>
+          <%- end -%>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- collection.each do |record| -%>
+          <tr class="<%= cycle("odd", "even") -%>">
+            <td><%= record.id %></td>
+            <%- columns.each do |column| -%>
+              <%- if record.send(column).is_a?(ActiveRecord::Base) -%>
+                <td><%= display_name_for(record.send(column)) %></td>
+              <%- else -%>
+                <td><%= record.send(column) %></td>
+              <%- end -%>
+            <%- end -%>
+            <td class="actions">
+              <%- if resource_administrated?(record.class) -%>
+                <%= render :partial => 'admin/shared/association_collection_table_actions', :locals => {
+                  :record => record,
+                  :object => object,
+                  :relationship => relationship
+                } %>
+              <%- else -%>
+                &nbsp;
+              <%- end -%>
+            </td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+    <div class="resource-table-footer">
+      <%= paginate collection, :remote => true, :params => {
+        :action => 'page_related', :relationship_name => relationship
+      } %>
+      <div class="pagination_information">
+        <%= raw page_entries_info(collection) %>
+      </div>
+    </div>
+  <%- else -%>
+    <%= render :partial => 'admin/shared/blank_slate', :locals => {
+      :blank_text => "There are no #{object.class.human_attribute_name(relationship)}"
+    } %>
+  <%- end -%>
+</div>

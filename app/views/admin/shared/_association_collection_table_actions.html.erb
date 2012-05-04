@@ -1,0 +1,5 @@
+<%= link_to "Edit", edit_url_for(record) %>
+<%= button_to "Unrelate", {:action => :unrelate, :id => object.to_param,
+  :relationship_name => relationship,
+  :related_id => record.id}, :method => :put %>
+<%- end -%>

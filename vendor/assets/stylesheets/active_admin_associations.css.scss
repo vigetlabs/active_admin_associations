@@ -1,0 +1,18 @@
+@import "token-input-facebook";
+
+.relationship-table {
+  border-top: 1px dotted lightGrey;
+  padding: 15px 0px;
+  margin: 25px 0px;
+}
+
+.resource-table-footer { padding-top: 5px; text-align: right; }
+
+form.relate-to-form {
+  h4 { padding: 10px; margin: 0px;}
+  fieldset.inputs > ol > li { float: left; }
+  fieldset.inputs > ol > li.label label {
+    float: none;
+    width: 150px;
+  }
+}
