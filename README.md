@@ -37,12 +37,14 @@ First, we'll need to make sure the JS and CSS is setup for the admin part of the
     Format Label isn't needed for jquery.tokeninput.js but it is useful when using jQueryUI's autocomplete in other parts of your site. It can allow you to custom format the display label for the autocomplete results displayed by jQueryUI.
     The `:format_label` option should be either a symbol that is a name of a method on an instance of the model, or a proc (or anything that responds to call) that takes 1 parameter which will be the record.
     Example:
-      autocomplete :name, :format_label => proc {|speaker|
-        label =  "<span id=\"speaker-#{speaker.id}\">#{speaker.name} <em>("
-        label << "#{speaker.position}, " unless speaker.position.blank?
-        label << "#{speaker.talk_count} talk#{'s' unless speaker.talk_count == 1})</em></span>"
-        label
-      }
+
+        autocomplete :name, :format_label => proc {|speaker|
+          label =  "<span id=\"speaker-#{speaker.id}\">#{speaker.name} <em>("
+          label << "#{speaker.position}, " unless speaker.position.blank?
+          label << "#{speaker.talk_count} talk#{'s' unless speaker.talk_count == 1})</em></span>"
+          label
+        }
+
 * Set values for `config.aa_associations.autocomplete_models` in your `config/application.rb`. This should be a list of the models that you have added `autocomplete` statements to:
 
       `config.aa_associations.autocomplete_models = %w(post user tag)`
