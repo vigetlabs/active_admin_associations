@@ -17,7 +17,7 @@ Then run `bundle install`.
 
 On many applications you end up with large datasets, try to select an element from those data sets via a select input (Formtastic's default) is less then ideal for a couple reasons. One, it's hard to navigate a large select list. Two, loading all those records into memory to populate the select list can be time consuming and cause the page to load slowly.
 
-So I've packaged [jquery-tokeninput](https://github.com/loopj/jquery-tokeninput), an autocomplete results controller, and an ActiveRecord macro.
+So I've packaged [jquery-tokeninput](https://github.com/loopj/jquery-tokeninput), an autocomplete results controller, and an ActiveRecord macro together to help improve this.
 
 If you aren't interested in using any of this just add this to your `application.rb` config:
 
