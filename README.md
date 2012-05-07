@@ -30,7 +30,6 @@ If you do want it here's how you set it up:
 First, we'll need to make sure the JS and CSS is setup for the admin part of the site.
 
 * Add `//= require active_admin_associations` to the top of your `app/assets/javascripts/active_admin.js` file.
-* Add `@import "active_admin_associations";` to the top of your `app/assets/stylesheets/active_admin.css.scss`
 * Add `autocomplete` statements to models you want to be able to autocomplete in the admin.
   * This first parameter it takes is a column/attribute name like `:title`.
   * The second parameter is an options has which for now only uses 1 value `:format_label`
