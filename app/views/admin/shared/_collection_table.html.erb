@@ -1,6 +1,6 @@
 <div class="relationship-table" id="relationship-table-<%= relationship %>">
   <h3><%= object.class.human_attribute_name(relationship) %></h3>
-  <%= render :partial => 'add_to_association', :locals => {
+  <%= render :partial => 'admin/shared/add_to_association', :locals => {
     :relationship_class => relationship_class,
     :object => object,
     :relationship => relationship
