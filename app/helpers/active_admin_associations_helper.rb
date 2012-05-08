@@ -1,12 +1,14 @@
 module ActiveAdminAssociationsHelper
-  def collection_relationship_manager(object, relationship_name, columns)
-    collection = object.send(relationship_name).page(1)
+  def collection_relationship_manager(object, association)
+    collection = object.send(association.name).page(1)
+    relationship_class = object.class.reflect_on_association(association.name).klass
+    columns = association.fields.presence || relationship_class.content_columns
     render :partial => 'admin/shared/collection_table', :locals => {
       :object => object,
       :collection => collection,
-      :relationship => relationship_name,
+      :relationship => association.name,
       :columns => columns,
-      :relationship_class => object.class.reflect_on_association(relationship_name).klass
+      :relationship_class => relationship_class
     }
   end
   

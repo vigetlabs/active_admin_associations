@@ -12,7 +12,9 @@ ActiveAdmin.register Post do
     end
   end
   
-  form_relationships [
-    [:tags, [:name]]
-  ]
+  form_associations do
+    association :tags do
+      fields :name
+    end
+  end
 end

@@ -8,8 +8,8 @@ module ActiveAdminAssociations
       config.form_columns = column_names
     end
 
-    def form_relationships(relations)
-      config.form_relationships = ActiveSupport::OrderedHash[relations]
+    def form_associations(&block)
+      config.form_associations = AssociationConfig.new(&block)
     end
   end
 end

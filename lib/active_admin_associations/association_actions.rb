@@ -27,12 +27,15 @@ module ActiveAdminAssociations
 
       member_action :page_related, :method => :get do
         relationship_name = params[:relationship_name].to_sym
+        association_config = active_admin_config.form_associations[relationship_name]
+        relationship_class = resource_class.reflect_on_association(relationship_name).klass
+        association_columns = association_config.fields.presence || relationship_class.content_columns
         render :partial => 'admin/shared/collection_table', :locals => {
           :object             => resource,
           :collection         => resource.send(relationship_name).page(params[:page]),
           :relationship       => relationship_name,
-          :columns            => active_admin_config.form_relationships[relationship_name],
-          :relationship_class => resource_class.reflect_on_association(relationship_name).klass
+          :columns            => association_columns,
+          :relationship_class => relationship_class
         }
       end
     end

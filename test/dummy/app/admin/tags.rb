@@ -5,7 +5,7 @@ ActiveAdmin.register Tag do
   
   form_columns [:name]
   
-  form_relationships [
-    [:posts, [:title, :creator]]
-  ]
+  form_associations do
+    association :posts, [:title, :creator]
+  end
 end

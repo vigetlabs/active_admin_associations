@@ -100,14 +100,66 @@ Now you need to define the columns and the `has_many` relationships:
       
       form_columns [:title, :body, :slug, :author, :published_at, :featured]
       
-      form_relationships [
-        [:tags, [:name, :post_count]],
-        [:revisions, [:version_number, :created_at, :update_at]]
-      ]
+      form_associations do
+        association :tags, [:name, :post_count]
+        association :revisions do
+          fields :version_number, :created_at, :update_at
+        end
+      end
     end
 
-* `form_columns` is an array of attributes on your model that you want to create form inputs for.
-* `form_relationships` is an array of arrays that define the relationships you want tables for and the columns you want displayed for each relationship.
+#### Defining the columns you want to edit in your form:
+
+Pass an array to the `form_columns` method to define the columns that will have inputs on the form.
+
+
+#### Defining associations to manage at the bottom of edit pages:
+
+The `form_associations` is used to define the associations you want to manage at the bottom of the edit pages. This method takes a block that is used to define these associations and the columns to display.
+
+If you use the `associations` method inside the block then you can define multiple associations at once:
+
+    form_associations do
+      association :tags, :revisions
+    end
+
+In this case all the `content_columns` for the models will be used as the columns in the association tables. This is probably good for getting started quickly but you'll probably find you quickly outgrow it.
+
+You can use individual `association` method calls and pass the list of attributes/methods to use as columns in the table:
+
+    form_associations do
+      association :tags, [:name, :post_count]
+    end
+
+You can also define the columns inside a block passed to the `association` method with a call to the `fields` method:
+
+    form_associations do
+      association :revisions do
+        fields :version_number, :created_at, :update_at
+      end
+    end
+
+Or if you prefer you can use multiple calls to the `field` method:
+
+    form_associations do
+      association :revisions do
+        field :version_number
+        field :created_at
+        field :update_at
+      end
+    end
+
+You are also free to mix and match:
+
+    form_associations do
+      association :revisions, [:version_number] do
+        fields :created_at, :another_column
+        field :update_at
+      end
+    end
+
+
+#### Fine grained control over the form:
 
 If you want more control over the main part of the form you can define a `active_association_form` which takes a block with 1 parameter (which is the form object):
 
@@ -128,10 +180,12 @@ If you want more control over the main part of the form you can define a `active
         end
       end
       
-      form_relationships [
-        [:tags, [:name, :post_count]],
-        [:revisions, [:version_number, :created_at, :update_at]]
-      ]
+      form_associations do
+        association :tags, [:name, :post_count]
+        association :revisions do
+          fields :version_number, :created_at, :update_at
+        end
+      end
     end
 
 #### Overriding the templates
@@ -142,11 +196,6 @@ If this still doesn't give you the power you're looking for you can override any
 * `admin/shared/_collection_tabe.html.erb` – this is how we generate the tables for the `has_many` relationships below the form. Once again not something I'd recommend editing
 * `admin/shared/_association_collection_table_actions.html.erb` – this defines the actions that you can do on each related record. The default is "edit" and "unrelate". You may want to override this for instance to define different actions for different models.
 * `admin/shared/_add_to_association.html.erb` – This is the form to relate existing records to the parent record.
-
-
-## TODO
-
-* Improve `form_relationships` API
 
 
 ## Contributing to ActiveAdmin Associations

@@ -13,6 +13,7 @@ module ActiveAdminAssociations
     autoload :FormConfigDSL
     autoload :RedirectDestroyActions
     autoload :Autocompleter
+    autoload :AssociationConfig
   end
 end
 
