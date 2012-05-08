@@ -4,8 +4,8 @@ module ActiveAdminAssociations
       config.active_association_form = block
     end
 
-    def form_columns(column_names)
-      config.form_columns = column_names
+    def form_columns(*column_names)
+      config.form_columns = column_names.flatten
     end
 
     def form_associations(&block)

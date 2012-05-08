@@ -3,7 +3,7 @@ ActiveAdmin.register Post do
   
   form :partial => "admin/shared/form"
   
-  form_columns [:title, :body, :creator]
+  form_columns :title, :body, :creator
   
   active_association_form do |f|
     f.inputs :id => 'more-inputs' do

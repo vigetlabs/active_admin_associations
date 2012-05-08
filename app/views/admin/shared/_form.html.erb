@@ -1,6 +1,5 @@
 <%= admin_form_for resource %>
 
-
 <%- if resource.persisted? && active_admin_config.form_associations.present? -%>
   <%- active_admin_config.form_associations.each do |association| -%>
     <%= collection_relationship_manager(resource, association) %>

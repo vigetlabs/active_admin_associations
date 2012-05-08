@@ -98,7 +98,7 @@ Now you need to define the columns and the `has_many` relationships:
       
       form :partial => "admin/shared/form"
       
-      form_columns [:title, :body, :slug, :author, :published_at, :featured]
+      form_columns :title, :body, :slug, :author, :published_at, :featured
       
       form_associations do
         association :tags, [:name, :post_count]
@@ -110,7 +110,7 @@ Now you need to define the columns and the `has_many` relationships:
 
 #### Defining the columns you want to edit in your form:
 
-Pass an array to the `form_columns` method to define the columns that will have inputs on the form.
+Pass to the `form_columns` method a list of column that there should be inputs for on the form.
 
 
 #### Defining associations to manage at the bottom of edit pages:

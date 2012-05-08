@@ -3,7 +3,7 @@ ActiveAdmin.register Tag do
 
   form :partial => "admin/shared/form"
   
-  form_columns [:name]
+  form_columns :name
   
   form_associations do
     association :posts, [:title, :creator]
