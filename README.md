@@ -15,7 +15,7 @@ Then run `bundle install`.
 
 ### Autocomplete
 
-On many applications you end up with large datasets, try to select an element from those data sets via a select input (Formtastic's default) is less then ideal for a couple reasons. One, it's hard to navigate a large select list. Two, loading all those records into memory to populate the select list can be time consuming and cause the page to load slowly.
+On many applications you end up with large datasets, trying to select an element from those data sets via a select input (Formtastic's default) is less then ideal for a couple reasons. One, it's hard to navigate a large select list. Two, loading all those records into memory to populate the select list can be time consuming and cause the page to load slowly.
 
 So I've packaged [jquery-tokeninput](https://github.com/loopj/jquery-tokeninput), an autocomplete results controller, and an ActiveRecord macro together to help improve this.
 
@@ -32,7 +32,7 @@ First, we'll need to make sure the JS and CSS is setup for the admin part of the
 * Add `//= require active_admin_associations` to the top of your `app/assets/javascripts/active_admin.js` file.
 * Add `autocomplete` statements to models you want to be able to autocomplete in the admin.
   * This first parameter it takes is a column/attribute name like `:title`.
-  * The second parameter is an options has which for now only uses 1 value `:format_label`
+  * The second parameter is an options hash which for now only uses 1 value `:format_label`
     Format Label isn't needed for jquery.tokeninput.js but it is useful when using jQueryUI's autocomplete in other parts of your site. It can allow you to custom format the display label for the autocomplete results displayed by jQueryUI.
     The `:format_label` option should be either a symbol that is a name of a method on an instance of the model, or a proc (or anything that responds to call) that takes 1 parameter which will be the record.
     Example:
@@ -54,7 +54,7 @@ Different libraries send different param names for the query to the autocomplete
 
     config.aa_associations.autocomplete_query_term_param_names = [:q, :term]
 
-It might happen that the hash the autocomplete formatter provides for individual results won't play nice with the JS autocomplete plugin your using. In this case we provide a way to format individual results yourself. Just assign an object that responds to call (like a proc) to `config.aa_associations.autocomplete_result_formatter` in your `config/application.rb` like so:
+It might happen that the hash the autocomplete ActiveRecord macro provides for individual results won't play nice with the JS autocomplete plugin you're using. In this case we provide a way to format individual results yourself. Just assign an object that responds to call (like a proc) to `config.aa_associations.autocomplete_result_formatter` in your `config/application.rb` like so:
 
     config.aa_associations.autocomplete_result_formatter = proc { |record, autocomplete_attribute, autocomplete_options|
       {:name => record.send(autocomplete_attribute), :id => record.id,
@@ -193,7 +193,7 @@ If you want more control over the main part of the form you can define a `active
 If this still doesn't give you the power you're looking for you can override any of the partial templates this engine uses.
 
 * `admin/shared/_form.html.erb` – you probably don't want to override this one instead you probably want to use your own `_form.html.erb` template in your `app/views/admin/RESOURCE_NAME` directory and have this in your AA resource config: `form :partial => 'form'`. But if you really want to change how all the aa_associations forms look you can.
-* `admin/shared/_collection_tabe.html.erb` – this is how we generate the tables for the `has_many` relationships below the form. Once again not something I'd recommend editing
+* `admin/shared/_collection_tabe.html.erb` – this is how we generate the tables for the `has_many` relationships below the form. Once again not something I'd recommend editing.
 * `admin/shared/_association_collection_table_actions.html.erb` – this defines the actions that you can do on each related record. The default is "edit" and "unrelate". You may want to override this for instance to define different actions for different models.
 * `admin/shared/_add_to_association.html.erb` – This is the form to relate existing records to the parent record.
 
