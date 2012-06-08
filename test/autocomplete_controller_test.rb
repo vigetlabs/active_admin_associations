@@ -14,5 +14,14 @@ class AutocompleteControllerTest < ActionController::TestCase
       should respond_with(:success)
       should respond_with_content_type(:json)
     end
+    
+    context 'get #index with no value' do
+      setup do
+        get :index, :model => 'tag', :format => 'json'
+      end
+      
+      should respond_with(:success)
+      should respond_with_content_type(:json)
+    end
   end
 end

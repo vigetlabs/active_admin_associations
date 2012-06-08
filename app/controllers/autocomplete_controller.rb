@@ -2,12 +2,16 @@ class AutocompleteController < ApplicationController
   def index
     respond_to do |format|
       format.json {
-        render :json => model.autocomplete_results(query_term)
+        render :json => autocomplete_results
       }
     end
   end
   
   private
+  
+  def autocomplete_results
+    query_term.present? ? model.autocomplete_results(query_term) : []
+  end
   
   def model
     params[:model].classify.constantize
