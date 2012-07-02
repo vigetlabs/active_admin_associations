@@ -18,8 +18,6 @@ module ActiveAdminAssociations
       
         Formtastic::Helpers::InputHelper.send(:include, Formtastic::TokenInputDefaultForAssociation)
       end
-      
-      ActiveAdmin.application.register_stylesheet 'active_admin_associations'
     end
   end
 end
