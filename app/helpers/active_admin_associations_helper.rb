@@ -21,7 +21,7 @@ module ActiveAdminAssociationsHelper
       if active_admin_config.active_association_form && active_admin_config.active_association_form.respond_to?(:call)
         active_admin_config.active_association_form.call(f)
       end
-      f.buttons
+      f.actions
     end
   end
   
