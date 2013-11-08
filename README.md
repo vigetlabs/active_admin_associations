@@ -1,5 +1,7 @@
 # ActiveAdmin Associations
 
+[![Code Climate](https://codeclimate.com/github/vigetlabs/active_admin_associations.png)](https://codeclimate.com/github/vigetlabs/active_admin_associations)
+
 This extends ActiveAdmin to allow for better editing of associations.
 
 ## Setup
