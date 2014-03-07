@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "active_admin_associations/version"
 
 Gem::Specification.new do |s|
-  s.name        = "aa_associations"
+  s.name        = "activeadmin_associations"
   s.version     = ActiveAdminAssociations::VERSION
   s.authors     = ["Brian Landau"]
   s.email       = ["brian.landau@viget.com"]
@@ -18,10 +18,10 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.extra_rdoc_files = ["README.md", "MIT_LICENSE.txt"]
 
-  s.add_dependency 'activeadmin', '~> 0.5'
-  s.add_dependency 'rails', '~> 3.1'
+  s.add_dependency 'activeadmin', '~> 0.6.0'
+  s.add_dependency 'rails', '~> 3.2'
 
-  s.add_development_dependency 'shoulda'
+  s.add_development_dependency 'shoulda', '~> 3.4.0'
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'mocha'
   s.add_development_dependency 'bundler', '~> 1.0'

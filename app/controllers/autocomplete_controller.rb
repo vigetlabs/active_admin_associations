@@ -18,8 +18,8 @@ class AutocompleteController < ApplicationController
   end
   
   def query_param_name
-    if aa_associations_config.autocomplete_query_term_param_names.present?
-      aa_associations_config.autocomplete_query_term_param_names.detect do |param_name|
+    if activeadmin_associations_config.autocomplete_query_term_param_names.present?
+      activeadmin_associations_config.autocomplete_query_term_param_names.detect do |param_name|
         params.keys.map(&:to_sym).include?(param_name.to_sym)
       end
     else
@@ -31,7 +31,7 @@ class AutocompleteController < ApplicationController
     params[query_param_name]
   end
   
-  def aa_associations_config
-    Rails.application.config.aa_associations
+  def activeadmin_associations_config
+    Rails.application.config.activeadmin_associations
   end
 end

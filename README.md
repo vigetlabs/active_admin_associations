@@ -10,7 +10,7 @@ This extends ActiveAdmin to allow for better editing of associations.
 
 Add this to your `Gemfile`:
 
-    gem 'aa_associations'
+    gem 'activeadmin_associations'
 
 Then run `bundle install`.
 
@@ -28,7 +28,7 @@ So I've packaged [jquery-tokeninput](https://github.com/loopj/jquery-tokeninput)
 
 If you aren't interested in using any of this just add this to your `application.rb` config:
 
-    config.aa_associations.autocomplete = false
+    config.activeadmin_associations.autocomplete = false
 
 If you do want it here's how you set it up:
 
@@ -51,19 +51,19 @@ First, we'll need to make sure the JS and CSS is setup for the admin part of the
           label
         }
       </pre></code>
-* Set values for `config.aa_associations.autocomplete_models` in your `config/application.rb`. This should be a list of the models that you have added `autocomplete` statements to:
+* Set values for `config.activeadmin_associations.autocomplete_models` in your `config/application.rb`. This should be a list of the models that you have added `autocomplete` statements to:
 
-      `config.aa_associations.autocomplete_models = %w(post user tag)`
+      `config.activeadmin_associations.autocomplete_models = %w(post user tag)`
 
 If you plan to use other autocomplete JS libraries there are 2 other configs you may want to look at:
 
 Different libraries send different param names for the query to the autocomplete endpoint you give it. For instance, jquery.tokeninput uses the `q` parameter while jQueryUI uses the `term` parameter. If no setting is given we will just use the `q` parameter. To configure this you need a statement like this in your `config/application.rb`:
 
-    config.aa_associations.autocomplete_query_term_param_names = [:q, :term]
+    config.activeadmin_associations.autocomplete_query_term_param_names = [:q, :term]
 
-It might happen that the hash the autocomplete ActiveRecord macro provides for individual results won't play nice with the JS autocomplete plugin you're using. In this case we provide a way to format individual results yourself. Just assign an object that responds to call (like a proc) to `config.aa_associations.autocomplete_result_formatter` in your `config/application.rb` like so:
+It might happen that the hash the autocomplete ActiveRecord macro provides for individual results won't play nice with the JS autocomplete plugin you're using. In this case we provide a way to format individual results yourself. Just assign an object that responds to call (like a proc) to `config.activeadmin_associations.autocomplete_result_formatter` in your `config/application.rb` like so:
 
-    config.aa_associations.autocomplete_result_formatter = proc { |record, autocomplete_attribute, autocomplete_options|
+    config.activeadmin_associations.autocomplete_result_formatter = proc { |record, autocomplete_attribute, autocomplete_options|
       {:name => record.send(autocomplete_attribute), :id => record.id,
         :another_value => record.send(autocomplete_options[:other_value_method])}
     }
@@ -73,7 +73,7 @@ It might happen that the hash the autocomplete ActiveRecord macro provides for i
 
 We add functionality so that when you do a destroy action you are redirected back to the Referer or the ActiveAdmin Dashboard. If you'd like to remove this functionality you can just put this in your `config/application.rb`:
 
-    config.aa_associations.destroy_redirect = false
+    config.activeadmin_associations.destroy_redirect = false
 
 
 ### Setup your admin resource definitions
@@ -199,7 +199,7 @@ If you want more control over the main part of the form you can define a `active
 
 If this still doesn't give you the power you're looking for you can override any of the partial templates this engine uses.
 
-* `admin/shared/_form.html.erb` – you probably don't want to override this one instead you probably want to use your own `_form.html.erb` template in your `app/views/admin/RESOURCE_NAME` directory and have this in your AA resource config: `form :partial => 'form'`. But if you really want to change how all the aa_associations forms look you can.
+* `admin/shared/_form.html.erb` – you probably don't want to override this one instead you probably want to use your own `_form.html.erb` template in your `app/views/admin/RESOURCE_NAME` directory and have this in your AA resource config: `form :partial => 'form'`. But if you really want to change how all the activeadmin_associations forms look you can.
 * `admin/shared/_collection_tabe.html.erb` – this is how we generate the tables for the `has_many` relationships below the form. Once again not something I'd recommend editing.
 * `admin/shared/_association_collection_table_actions.html.erb` – this defines the actions that you can do on each related record. The default is "edit" and "unrelate". You may want to override this for instance to define different actions for different models.
 * `admin/shared/_add_to_association.html.erb` – This is the form to relate existing records to the parent record.

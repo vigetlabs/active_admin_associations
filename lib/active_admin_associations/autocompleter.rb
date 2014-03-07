@@ -27,7 +27,7 @@ module ActiveAdminAssociations
       
       def _autocomplete_format_result(record)
         if configured_autocomplete_result_formatter?
-          aa_associations_config.autocomplete_result_formatter.call(record,
+          activeadmin_associations_config.autocomplete_result_formatter.call(record,
             autocomplete_attribute, autocomplete_options)
         else
           label = _format_autocomplete_label(record)
@@ -52,12 +52,12 @@ module ActiveAdminAssociations
       end
       
       def configured_autocomplete_result_formatter?
-        aa_associations_config.autocomplete_result_formatter.present? &&
-          aa_associations_config.autocomplete_result_formatter.respond_to?(:call)
+        activeadmin_associations_config.autocomplete_result_formatter.present? &&
+          activeadmin_associations_config.autocomplete_result_formatter.respond_to?(:call)
       end
       
-      def aa_associations_config
-        Rails.application.config.aa_associations
+      def activeadmin_associations_config
+        Rails.application.config.activeadmin_associations
       end
     end
   end

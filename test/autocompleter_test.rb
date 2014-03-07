@@ -8,12 +8,12 @@ class AutocompleterTest < ActiveSupport::TestCase
     
     context 'with a custom formatter' do
       setup do
-        Rails.application.config.aa_associations.autocomplete_result_formatter = proc {|record, autocomplete_attribute, autocomplete_options|
+        Rails.application.config.activeadmin_associations.autocomplete_result_formatter = proc {|record, autocomplete_attribute, autocomplete_options|
           {"name" => record.send(autocomplete_attribute), "id"  => record.id}
         }
       end
       teardown do
-        Rails.application.config.aa_associations.autocomplete_result_formatter = nil
+        Rails.application.config.activeadmin_associations.autocomplete_result_formatter = nil
       end
       
       should 'return the result with the correct format' do

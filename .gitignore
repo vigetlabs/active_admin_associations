@@ -51,3 +51,6 @@ pkg
 Gemfile.lock
 
 .rvmrc
+
+.ruby-version
+

@@ -3,7 +3,7 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 
 Bundler.require
-require "aa_associations"
+require "activeadmin_associations"
 
 module Dummy
   class Application < Rails::Application
@@ -52,7 +52,7 @@ module Dummy
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     
-    config.aa_associations.autocomplete_models = %w(post user tag)
+    config.activeadmin_associations.autocomplete_models = %w(post user tag)
     
     config.generators do |g|
       g.assets false
