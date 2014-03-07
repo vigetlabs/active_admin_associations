@@ -54,3 +54,4 @@ Gemfile.lock
 
 .ruby-version
 
+coverage/
