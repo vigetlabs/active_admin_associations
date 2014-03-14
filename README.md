@@ -1,6 +1,6 @@
 # ActiveAdmin Associations
 
-[![Code Climate](https://codeclimate.com/github/vigetlabs/active_admin_associations.png)](https://codeclimate.com/github/vigetlabs/active_admin_associations)
+[![Code Climate](https://codeclimate.com/github/vigetlabs/active_admin_associations.png)](https://codeclimate.com/github/vigetlabs/active_admin_associations) [![Build Status](https://travis-ci.org/vigetlabs/active_admin_associations.png?branch=master)](https://travis-ci.org/vigetlabs/active_admin_associations) [![Coverage Status](https://coveralls.io/repos/vigetlabs/active_admin_associations/badge.png?branch=master)](https://coveralls.io/r/vigetlabs/active_admin_associations?branch=master) [![Gem Version](https://badge.fury.io/rb/activeadmin_associations.png)](http://badge.fury.io/rb/activeadmin_associations)
 
 This extends ActiveAdmin to allow for better editing of associations.
 
