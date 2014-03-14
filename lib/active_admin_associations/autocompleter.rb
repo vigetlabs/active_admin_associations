@@ -40,15 +40,12 @@ module ActiveAdminAssociations
       def _format_autocomplete_label(record)
         if autocomplete_options[:format_label].present?
           if autocomplete_options[:format_label].is_a?(Symbol)
-            record.send(autocomplete_options[:format_label])
+            return record.send(autocomplete_options[:format_label])
           elsif autocomplete_options[:format_label].respond_to?(:call)
-            autocomplete_options[:format_label].call(record)
-          else
-            record.send(autocomplete_attribute)
+            return autocomplete_options[:format_label].call(record)
           end
-        else
-          record.send(autocomplete_attribute)
         end
+        record.send(autocomplete_attribute)
       end
       
       def configured_autocomplete_result_formatter?

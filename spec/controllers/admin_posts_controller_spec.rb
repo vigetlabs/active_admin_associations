@@ -4,13 +4,14 @@ describe Admin::PostsController do
   let!(:post){ Factory(:post) }
   let!(:tag1){ Factory(:tag) }
   let!(:tag2){ Factory(:tag) }
+  let!(:user){ Factory(:user) }
 
   before do
     admin_login_as
     post.tags << tag1
   end
   
-  describe 'relate a resource' do
+  describe 'relate a tag' do
     before do
       @initial_tagging_count = Tagging.count
       put :relate, :id => post.id, :relationship_name => "tags",
@@ -28,8 +29,22 @@ describe Admin::PostsController do
       post.tags(true).should include(tag2)
     end
   end
+
+  describe 'relate a creator' do
+    before do
+      put :relate, :id => post.id, :relationship_name => "creator",
+        :related_id => user.id
+    end
+    
+    it { should respond_with(:redirect) }
+    it { should set_the_flash.to('The recored has been related.') }
+    
+    it 'properly relates the record' do
+      post.reload.creator(true).should == user
+    end
+  end
   
-  describe 'unrelate a resource' do
+  describe 'unrelate a tag' do
     before do
       @initial_tagging_count = Tagging.count
       put :unrelate, :id => post.id, :relationship_name => "tags",
@@ -45,6 +60,19 @@ describe Admin::PostsController do
     
     it 'properly unrelates the record' do
       post.tags(true).should_not include(tag1)
+    end
+  end
+
+  describe 'unrelate a creator' do
+    before do
+      put :unrelate, :id => post.id, :relationship_name => "creator"
+    end
+    
+    it { should respond_with(:redirect) }
+    it { should set_the_flash.to('The recored has been unrelated.') }
+
+    it "removes the creator" do
+      post.reload.creator(true).should be_nil
     end
   end
   

@@ -40,7 +40,7 @@ describe ActiveAdminAssociations::Autocompleter do
     end
   end
   
-  context 'with a custom label formatter that is a method on the class' do
+  context 'with a custom label formatter that is a proc' do
     before do
       Tag.autocomplete_options[:format_label] = proc{|record|
         "#{record.name}: Tag"

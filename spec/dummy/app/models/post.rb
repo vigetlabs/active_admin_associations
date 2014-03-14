@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
   has_many :taggings, :as => :taggable
   has_many :tags, :through => :taggings
   
-  validates_presence_of :title, :body, :creator_id
+  validates_presence_of :title, :body
   
   autocomplete :title
 end
