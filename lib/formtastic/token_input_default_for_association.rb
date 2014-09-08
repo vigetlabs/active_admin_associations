@@ -4,6 +4,7 @@ module Formtastic
     
     included do
       alias_method_chain :default_input_type, :token_default_for_association
+      public :default_input_type
     end
     
     def default_input_type_with_token_default_for_association(method, options = {})
