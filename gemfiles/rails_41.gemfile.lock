@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activeadmin/activeadmin.git
-  revision: 35084ca71a48e48e4aaa16366b7d1c73039bfed4
+  revision: 6472173b22621c4f838c70c1b9a47dc22b8f3fa3
   branch: master
   specs:
     activeadmin (1.0.0.pre)
@@ -17,7 +17,7 @@ GIT
       sass-rails
 
 PATH
-  remote: .
+  remote: ../
   specs:
     activeadmin_associations (0.2.0)
       activeadmin (= 1.0.0.pre)
@@ -26,27 +26,27 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
-    actionmailer (4.1.6)
-      actionpack (= 4.1.6)
-      actionview (= 4.1.6)
-      mail (~> 2.5, >= 2.5.4)
-    actionpack (4.1.6)
-      actionview (= 4.1.6)
-      activesupport (= 4.1.6)
+    actionmailer (4.1.5)
+      actionpack (= 4.1.5)
+      actionview (= 4.1.5)
+      mail (~> 2.5.4)
+    actionpack (4.1.5)
+      actionview (= 4.1.5)
+      activesupport (= 4.1.5)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
-    actionview (4.1.6)
-      activesupport (= 4.1.6)
+    actionview (4.1.5)
+      activesupport (= 4.1.5)
       builder (~> 3.1)
       erubis (~> 2.7.0)
-    activemodel (4.1.6)
-      activesupport (= 4.1.6)
+    activemodel (4.1.5)
+      activesupport (= 4.1.5)
       builder (~> 3.1)
-    activerecord (4.1.6)
-      activemodel (= 4.1.6)
-      activesupport (= 4.1.6)
+    activerecord (4.1.5)
+      activemodel (= 4.1.5)
+      activesupport (= 4.1.5)
       arel (~> 5.0.0)
-    activesupport (4.1.6)
+    activesupport (4.1.5)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -123,9 +123,10 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.4.2)
       addressable (~> 2.3)
-    mail (2.6.1)
-      mime-types (>= 1.16, < 3)
-    mime-types (2.3)
+    mail (2.5.4)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    mime-types (1.25.1)
     mini_portile (0.6.0)
     minitest (5.4.1)
     multi_json (1.10.1)
@@ -135,22 +136,23 @@ GEM
     orm_adapter (0.5.0)
     polyamorous (1.1.0)
       activerecord (>= 3.0)
+    polyglot (0.3.5)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
-    rails (4.1.6)
-      actionmailer (= 4.1.6)
-      actionpack (= 4.1.6)
-      actionview (= 4.1.6)
-      activemodel (= 4.1.6)
-      activerecord (= 4.1.6)
-      activesupport (= 4.1.6)
+    rails (4.1.5)
+      actionmailer (= 4.1.5)
+      actionpack (= 4.1.5)
+      actionview (= 4.1.5)
+      activemodel (= 4.1.5)
+      activerecord (= 4.1.5)
+      activesupport (= 4.1.5)
       bundler (>= 1.3.0, < 2.0)
-      railties (= 4.1.6)
+      railties (= 4.1.5)
       sprockets-rails (~> 2.0)
-    railties (4.1.6)
-      actionpack (= 4.1.6)
-      activesupport (= 4.1.6)
+    railties (4.1.5)
+      actionpack (= 4.1.5)
+      activesupport (= 4.1.5)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.3.2)
@@ -206,6 +208,9 @@ GEM
     thread_safe (0.3.4)
     tilt (1.4.1)
     tins (1.3.2)
+    treetop (1.4.15)
+      polyglot
+      polyglot (>= 0.3.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     warden (1.2.3)
@@ -228,6 +233,7 @@ DEPENDENCIES
   devise
   factory_girl_rails (~> 1.7)
   launchy
+  rails (~> 4.1.5)
   rspec-rails (~> 2.14.1)
   sass-rails (~> 4.0.3)
   shoulda-matchers (~> 2.7)

@@ -1,3 +1,5 @@
+require_relative '../../app/models/tag'
+
 ActiveAdmin.register Tag do
   association_actions
 

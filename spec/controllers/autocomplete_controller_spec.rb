@@ -9,7 +9,10 @@ describe AutocompleteController do
     end
     
     it { should respond_with(:success) }
-    it { should respond_with_content_type(:json) }
+
+    it "responds with json" do
+      response.content_type.should == "application/json"
+    end
   end
 
   describe 'get #index with autocomplete_query_term_param_names config setting set' do
@@ -22,7 +25,10 @@ describe AutocompleteController do
     end
     
     it { should respond_with(:success) }
-    it { should respond_with_content_type(:json) }
+
+    it "responds with json" do
+      response.content_type.should == "application/json"
+    end
   end
   
   describe 'get #index with no value' do
@@ -31,6 +37,9 @@ describe AutocompleteController do
     end
     
     it { should respond_with(:success) }
-    it { should respond_with_content_type(:json) }
+
+    it "responds with json" do
+      response.content_type.should == "application/json"
+    end
   end
 end

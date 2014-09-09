@@ -1,4 +1,6 @@
-ActiveAdmin.register Post do
+require_relative '../../app/models/post'
+
+ActiveAdmin.register ::Post do
   association_actions
   
   form :partial => "admin/shared/form"

@@ -13,6 +13,12 @@ require 'capybara/rspec'
 require 'database_cleaner'
 require 'factory_girl_rails'
 
+require_relative 'dummy/app/admin/post'
+require_relative 'dummy/app/admin/dashboard'
+require_relative 'dummy/app/admin/admin_user'
+require_relative 'dummy/app/admin/tag'
+require_relative 'dummy/config/routes'
+
 Rails.backtrace_cleaner.remove_silencers!
 
 DatabaseCleaner.strategy = :truncation
