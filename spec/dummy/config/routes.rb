@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
 
+  mount ActiveAdminAssociations::Engine, :at => '/'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

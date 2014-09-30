@@ -34,7 +34,12 @@ If you do want it here's how you set it up:
 
 #### Setting up autocomplete
 
-First, we'll need to make sure the JS and CSS is setup for the admin part of the site.
+First, you'll need to add the routes to your `config/routes.rb` file:
+
+    mount ActiveAdminAssociations::Engine, :at => '/'
+
+
+Second, we'll need to make sure the JS and CSS is setup for the admin part of the site.
 
 * Add `//= require active_admin_associations` to the top of your `app/assets/javascripts/active_admin.js` file.
 * Add `autocomplete` statements to models you want to be able to autocomplete in the admin.

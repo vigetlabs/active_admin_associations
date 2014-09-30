@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe AutocompleteController do
+  routes { ActiveAdminAssociations::Engine.routes }
+  
   let!(:tag){ Factory(:tag, :name => 'Music') }
   
   describe 'get #index' do
