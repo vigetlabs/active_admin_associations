@@ -8,7 +8,7 @@ ActiveAdmin.register ::Post do
   form_columns :title, :body, :creator
   
   active_association_form do |f|
-    f.inputs :id => 'more-inputs' do
+    f.inputs do
       f.input :published_at, :input_html => {:class => 'my-date-picker'}, :as => :string
       f.input :featured
     end

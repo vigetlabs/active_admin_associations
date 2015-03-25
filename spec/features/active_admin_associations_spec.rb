@@ -21,8 +21,8 @@ describe 'ActiveAdmin Association interface' do
     end
     
     it 'has correct inputs from active_association_form config' do
-      page.should have_selector('form.post fieldset#more-inputs input.my-date-picker#post_published_at')
-      page.should have_selector('form.post fieldset#more-inputs input#post_featured')
+      page.should have_selector('form.post fieldset.inputs input.my-date-picker#post_published_at')
+      page.should have_selector('form.post fieldset.inputs input#post_featured')
     end
     
     it 'has correct token input for post creator' do
