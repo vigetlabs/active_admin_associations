@@ -24,7 +24,7 @@ module ActiveAdminAssociations
       def unrelate_record
         if relationship_reflection.collection?
           related_record = relationship_class.find(params[:related_id])
-          resource.send(relationship_name).delete(related_record)
+          resource.send(relationship_name).destroy(related_record)
         else
           resource.update_attribute(relationship_reflection.foreign_key, nil)
         end
