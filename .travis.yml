@@ -24,3 +24,5 @@ gemfile:
 services: sqlite3
 before_script:
   - bundle exec rake db:migrate
+before_install:
+  - gem install bundler
